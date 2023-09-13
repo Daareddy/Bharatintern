@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content Management Tool</title>
+    <style>
+        /* Basic CSS styles for the content area */
+        #content {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Content Management Tool</h1>
+    
+    <div>
+        <button id="addText">Add Text</button>
+        <button id="addImage">Add Image</button>
+        <button id="addVideo">Add Video</button>
+    </div>
+
+    <div id="content">
+        <!-- Content will be added here -->
+    </div>
+
+    <script>
+        // JavaScript to handle adding content
+        const contentDiv = document.getElementById("content");
+
+        document.getElementById("addText").addEventListener("click", function () {
+            const text = prompt("Enter text:");
+            if (text) {
+                const paragraph = document.createElement("p");
+                paragraph.textContent = text;
+                contentDiv.appendChild(paragraph);
+            }
+        });
+
+        document.getElementById("addImage").addEventListener("click", function () {
+            const imageUrl = prompt("Enter image URL:");
+            if (imageUrl) {
+                const img = document.createElement("img");
+                img.src = imageUrl;
+                contentDiv.appendChild(img);
+            }
+        });
+
+        document.getElementById("addVideo").addEventListener("click", function () {
+            const videoUrl = prompt("Enter video URL:");
+            if (videoUrl) {
+                const video = document.createElement("iframe");
+                video.src = videoUrl;
+                contentDiv.appendChild(video);
+            }
+        });
+    </script>
+</body>
+</html>
